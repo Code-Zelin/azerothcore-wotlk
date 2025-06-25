@@ -2648,10 +2648,45 @@ ItemDelete.KeepDays = 0
 #
 #   DBC.EnforceItemAttributes
 #        Disallow overriding item attributes stored in DBC files with values from the database
-#        Default: 0 - Off, Use DB values
-#                 1 - On, Enforce DBC Values (default)
-
+#        Default:     1
 DBC.EnforceItemAttributes = 1
+
+# ITEM RANDOM ATTRIBUTES
+#    ItemRandomAttributes.Enabled
+#        Description: Enable/Disable the random attributes system for items
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+ItemRandomAttributes.Enabled = 1
+
+#    ItemRandomAttributes.RandomMultiplierMin
+#    ItemRandomAttributes.RandomMultiplierMax
+#        Description: Range for random multiplier applied to attribute values
+#        Default:     0.5 - (RandomMultiplierMin)
+#                     1.5 - (RandomMultiplierMax)
+ItemRandomAttributes.RandomMultiplierMin = 0.5
+ItemRandomAttributes.RandomMultiplierMax = 1.5
+
+#    ItemRandomAttributes.AttributeValueMultiplier
+#        Description: Global multiplier for all attribute values
+#        Default:     1.0
+ItemRandomAttributes.AttributeValueMultiplier = 1.0
+
+#    ItemRandomAttributes.MaxAttributesPerItem
+#        Description: Maximum number of random attributes per item
+#        Default:     5
+ItemRandomAttributes.MaxAttributesPerItem = 5
+
+#    ItemRandomAttributes.ShowDecimals
+#        Description: Show decimal values in attribute display
+#        Default:     0 - (Disabled)
+#                     1 - (Enabled)
+ItemRandomAttributes.ShowDecimals = 0
+
+#    ItemRandomAttributes.RoundToNearest
+#        Description: Round attribute values to nearest integer
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+ItemRandomAttributes.RoundToNearest = 1
 
 #
 #    Rate.Drop.Item.Poor

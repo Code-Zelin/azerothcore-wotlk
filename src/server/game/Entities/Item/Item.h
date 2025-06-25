@@ -225,6 +225,7 @@ public:
     Item();
 
     virtual bool Create(ObjectGuid::LowType guidlow, uint32 itemid, Player const* owner);
+    bool Create(ObjectGuid::LowType guidlow, uint32 itemid, Player const* owner, uint32 sourceType);
 
     [[nodiscard]] ItemTemplate const* GetTemplate() const;
 

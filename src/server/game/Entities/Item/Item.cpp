@@ -28,6 +28,7 @@
 #include "StringConvert.h"
 #include "Tokenize.h"
 #include "WorldPacket.h"
+#include "ItemRandomAttributes.h"
 
 void AddItemsSetItem(Player* player, Item* item)
 {
@@ -302,6 +303,15 @@ bool Item::Create(ObjectGuid::LowType guidlow, uint32 itemid, Player const* owne
 
     SetUInt32Value(ITEM_FIELD_DURATION, itemProto->Duration);
     SetUInt32Value(ITEM_FIELD_CREATE_PLAYED_TIME, 0);
+    
+    // 集成随机属性系统
+    if (sItemRandomAttributesMgr->IsEnabled())
+    {
+        // 默认来源类型为其他，具体来源类型需要在调用Create时指定
+        uint32 sourceType = ITEM_SOURCE_OTHER;
+        sItemRandomAttributesMgr->GenerateRandomAttributes(this, sourceType);
+    }
+    
     sScriptMgr->OnItemCreate(this, itemProto, owner);
     return true;
 }

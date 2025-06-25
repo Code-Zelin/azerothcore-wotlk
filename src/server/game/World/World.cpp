@@ -1964,6 +1964,12 @@ void World::SetInitialWorldSettings()
     LOG_INFO("server.loading", "Load Stored Loot Items...");
     sLootItemStorage->LoadStorageFromDB();
 
+    // 初始化随机属性系统
+    LOG_INFO("server.loading", "Loading Item Random Attributes System...");
+    sItemRandomAttributesMgr->LoadConfigSettings();
+    sItemRandomAttributesMgr->LoadAttributeTypes();
+    sItemRandomAttributesMgr->LoadItemAttributes();
+
     LOG_INFO("server.loading", "Load Channel Rights...");
     ChannelMgr::LoadChannelRights();
 

@@ -616,6 +616,12 @@ void CharacterDatabaseConnection::DoPrepareStatements()
         "ON DUPLICATE KEY UPDATE state = VALUES(state)", CONNECTION_ASYNC);
     PrepareStatement(CHAR_DELETE_INSTANCE_SAVED_DATA, "DELETE FROM instance_saved_go_state_data WHERE id = ?", CONNECTION_ASYNC);
     PrepareStatement(CHAR_SANITIZE_INSTANCE_SAVED_DATA, "DELETE FROM instance_saved_go_state_data WHERE id NOT IN (SELECT instance.id FROM instance)", CONNECTION_ASYNC);
+
+    // Item Random Attributes System
+    PrepareStatement(CHAR_INS_ITEM_RANDOM_ATTRIBUTE, "INSERT INTO item_random_attributes (item_guid, attribute_type, attribute_value, attribute_quality, random_multiplier) VALUES (?, ?, ?, ?, ?)", CONNECTION_ASYNC);
+    PrepareStatement(CHAR_SEL_ITEM_RANDOM_ATTRIBUTES, "SELECT id, item_guid, attribute_type, attribute_value, attribute_quality, random_multiplier, created_at FROM item_random_attributes WHERE item_guid = ?", CONNECTION_SYNCH);
+    PrepareStatement(CHAR_DEL_ITEM_RANDOM_ATTRIBUTES, "DELETE FROM item_random_attributes WHERE item_guid = ?", CONNECTION_ASYNC);
+    PrepareStatement(CHAR_UPD_ITEM_RANDOM_ATTRIBUTE, "UPDATE item_random_attributes SET attribute_value = ?, random_multiplier = ? WHERE id = ?", CONNECTION_ASYNC);
 }
 
 CharacterDatabaseConnection::CharacterDatabaseConnection(MySQLConnectionInfo& connInfo) : MySQLConnection(connInfo)
