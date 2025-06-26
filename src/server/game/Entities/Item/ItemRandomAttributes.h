@@ -89,6 +89,7 @@ public:
     bool ShouldGenerateRandomAttributes(Item* item, uint32 sourceType);
     
     // 配置相关
+    void LoadConfigSettings();
     void SetEnabled(bool enabled) { _enabled = enabled; }
     bool IsEnabled() const { return _enabled; }
     

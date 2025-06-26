@@ -27,7 +27,7 @@ class ItemRandomAttributesExample : public ItemScript
 public:
     ItemRandomAttributesExample() : ItemScript("ItemRandomAttributesExample") {}
 
-    void OnCreate(Item* item, Player* player) override
+    void OnCreate(Item* item, Player* player)
     {
         if (!item || !player)
             return;

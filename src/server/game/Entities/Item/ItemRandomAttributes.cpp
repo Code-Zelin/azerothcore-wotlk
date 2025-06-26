@@ -25,6 +25,7 @@
 #include "Random.h"
 #include "Config.h"
 #include <sstream>
+#include <iomanip>
 
 ItemRandomAttributesMgr* ItemRandomAttributesMgr::instance()
 {

@@ -97,8 +97,11 @@
 #include "WorldSessionMgr.h"
 #include "WorldState.h"
 #include "WorldStateDefines.h"
+#include "ItemRandomAttributes.h"
 #include <boost/asio/ip/address.hpp>
 #include <cmath>
+
+#define sItemRandomAttributesMgr ItemRandomAttributesMgr::instance()
 
 std::atomic_long World::_stopEvent = false;
 uint8 World::_exitCode = SHUTDOWN_EXIT_CODE;
