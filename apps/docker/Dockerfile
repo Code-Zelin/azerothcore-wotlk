@@ -105,14 +105,14 @@ RUN --mount=type=cache,target=/ccache,sharing=locked \
 #############################
 # Base runtime for services #
 #############################
-
+ 
 FROM skeleton AS runtime
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 ARG DOCKER_USER=acore
 
-ENV ACORE_COMPONENT=undefined
+ENV ACORE_COMPONENT=services
 
 # Install base dependencies for azerothcore
 RUN apt-get update && \
@@ -216,6 +216,7 @@ FROM skeleton AS client-data
 
 LABEL description="AzerothCore client-data"
 
+ENV ACORE_COMPONENT=client-data
 ENV DATAPATH=/azerothcore/env/dist/data
 
 RUN apt-get update && \
@@ -238,6 +239,7 @@ FROM runtime AS tools
 
 LABEL description="AzerothCore Tools"
 
+ENV ACORE_COMPONENT=tools
 WORKDIR /azerothcore/env/dist/
 
 RUN mkdir -pv /azerothcore/env/dist/Cameras \
